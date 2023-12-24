@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <style>
+        #videoList {
+            overflow-y: auto;
+            max-height: 240px;
+            width: 480px;
+            /* Match the video width */
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            counter-reset: videoCounter;
+            font-size: 13px; /* Adjust the font size as needed */
+            margin-bottom: 20px; /* Add margin between different video lists */
+        }
+
+        #videoList li {
+            margin-bottom: 5px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        #videoList li::before {
+            /*video count*/
+            /*content: counter(videoCounter);
+            counter-increment: videoCounter;*/
+            display: inline-block;
+            width: 20px; /* Adjust the width as needed */
+            text-align: right;
+            margin-right: 5px;
+            color: #555; /* Adjust the color as needed */
+        }
+
+        #videoList li.selected {
+            background-color: lightgreen;
+        }
+
+        .title_bold {        
+            font-weight: bold;
+            color: blue;
+            font-size: 15px; /* Adjust the font size as needed */
+        }
+
+    </style>
+</head>
+<body>
+
+<video id="mainVideo" width="320" height="240" controls autoplay>
+    <source src="https://video.taolove.kr/movies/diet/000.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+
+<!-- 복뇌교실 -->
+<ol id="videoList">
+    <li class="title_bold">(댄스워킹 챌린지)</li>
+    <li onclick="playVideo('https://video.taolove.kr/movies/dance/walking1-1.mp4', this); return false;">demo</li>
+    <li onclick="playVideo('https://video.taolove.kr/movies/dance/walking1-1.mp4', this); return false;">(1부/1강) 이론1: 걸으면 걸을수록 힘이 솟고 신나는 걸음법</li>
+    <li onclick="playVideo('https://video.taolove.kr/movies/dance/walking1-2.mp4', this); return false;">(1부/2강) 이론2: 신나는 무중력 댄스워킹의 요령</li>
+    <li onclick="playVideo('https://video.taolove.kr/movies/dance/walking1-3.mp4', this); return false;">(1부/3강) 실습: 뱃살다이어트 댄스워킹 준비운동 3가지</li>
+    <li onclick="playVideo('https://video.taolove.kr/movies/dance/walking1-4.mp4', this); return false;">(1부/4강) 실습2 : 정력과 명기~ 케겔 댄스워킹 따라하기</li>
+    <li onclick="playVideo('https://video.taolove.kr/movies/dance/walking1-5.mp4', this); return false;">(1부/5강) 댄스워킹 1~6단계 연속 따라하기</li>
+    <li onclick="playVideo('https://video.taolove.kr/movies/dance/walking1-6.mp4', this); return false;">(1부/부록) 체험담: 댄스워킹 챌린지, 신나고 힘이 솟아나요!</li>
+    <li onclick="playVideo('https://video.taolove.kr/movies/dance/walking2-1.mp4', this); return false;">(2부/1강) 이론1: 당신만 모르는 진동과 회전의 비밀, 일상의 파동건강법 댄스워킹</li>
+    <li onclick="playVideo('https://video.taolove.kr/movies/dance/walking2-2.mp4', this); return false;">(2부/2강) 이론</li>
+    
+  
+</ol>
+
+<ol id="videoList">
+    <li class="title_bold">(뱃속 다이어트 장기마사지)</li>
+    <li onclick="playVideo('https://video.taolove.kr/movies/diet/000.mp4', this); return false;">demo</li>
+    <li onclick="playVideo('https://video.taolove.kr/movies/diet/001.mp4', this); return false;">1강 왜 장기마사지 뱃살프로그램인가?</li>
+    <li onclick="playVideo('https://video.taolove.kr/movies/diet/002.mp4', this); return false;">2강 속부터 날씬해지는 셀프 장기마사지</li>
+    <li onclick="playVideo('https://video.taolove.kr/movies/diet/004.mp4', this); return false;">3강 내장 지방이 쏙 빠지는 장운동 6가지</li>
+    <li onclick="playVideo('https://video.taolove.kr/movies/diet/005.mp4', this); return false;">4강 몸과 마음이 편해지는 기공호흡법</li>
+    <li onclick="playVideo('https://video.taolove.kr/movies/diet/006.mp4', this); return false;">5강 둘이서 주고받는 장기마사지</li>
+    
+  
+</ol>
+
+<script>
+    function playVideo(videoURL, listItem) {
+        var mainVideo = document.getElementById('mainVideo');
+        mainVideo.src = videoURL;
+        mainVideo.load();
+        mainVideo.play();
+
+        // Remove 'selected' class from all list items
+        var listItems = document.querySelectorAll('#videoList li');
+        listItems.forEach(function (item) {
+            item.classList.remove('selected');
+        });
+
+        // Add 'selected' class to the clicked list item
+        listItem.classList.add('selected');
+    }
+</script>
+
+</body>
+</html>

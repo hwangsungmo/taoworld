@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <style>
+        #videoList {
+            overflow-y: auto;
+            max-height: 240px;
+            width: 480px;
+            /* Match the video width */
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            counter-reset: videoCounter;
+            font-size: 13px;
+            /* Adjust the font size as needed */
+            margin-bottom: 20px;
+            /* Add margin between different video lists */
+        }
+
+        #videoList li {
+            margin-bottom: 5px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        #videoList li::before {
+            /*video count*/
+            /*content: counter(videoCounter);
+            counter-increment: videoCounter;*/
+            display: inline-block;
+            width: 20px;
+            /* Adjust the width as needed */
+            text-align: right;
+            margin-right: 5px;
+            color: #555;
+            /* Adjust the color as needed */
+        }
+
+        #videoList li.selected {
+            background-color: lightgreen;
+        }
+
+        .title_bold {
+            font-weight: bold;
+            color: blue;
+            font-size: 15px;
+            /* Adjust the font size as needed */
+        }
+    </style>
+</head>
+
+<body>
+
+    <video id="mainVideo" width="320" height="240" controls autoplay>
+        <source src="https://video.taolove.kr/movies/diet/000.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+
+    <!-- 성뇌교실 -->
+    <ol id="videoList">
+        <li class="title_bold">(이여명의 타오러브)</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/lee1.mp4', this); return false;">1.성에너지의 비밀과 성욕 승화의
+            살리는 섹스론</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/lee2.mp4', this); return false;">2.정력증진 섹서사이즈, 파워 성기관
+            단련법</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/lee3.mp4', this); return false;">3.남성의 사정 조절 훈련과 여성의
+            오르가즘 확장법(1)</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/lee4.mp4', this); return false;">4.남성의 사정 조절 훈련과 여성의
+            오르가즘 확장법(2)</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/lee5.mp4', this); return false;">5.질문과 답변 : 여성 명기론과
+            남성 명도론</li>
+
+<!--
+    </ol>
+
+    <ol id="videoList">
+-->
+        <li class="title_bold">[소녀경 북콘서트 특가]환희심을 부르는 소녀경의 시크릿</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/1_snk_20181206.mp4', this); return false;">1.소녀경에 대하여
+        </li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/2_snk_20181206.mp4', this); return false;">2.소녀경의
+            핵심비법, 환정보뇌</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/3_snk_20181206.mp4', this); return false;">3.음양조화를 위한
+            실전테크닉</li>
+<!--
+    </ol>
+
+    <ol id="videoList">
+-->
+        <li class="title_bold">(이여명의 EO 테크닉)</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/Feotech7-fullversion01.mp4', this); return false;">
+            1.진짜 명기 테크닉이란?</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/eotech8-fullversion02.mp4', this); return false;">
+            2.진짜 명도 테크닉이란?</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/fullversion3.mp4', this); return false;">3.아무도 모르는 체모
+            성감대 3곳</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/fullversion4_10.mp4', this); return false;">4.환상적인
+            가슴애무마사지 비법</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/fullversion5(11).mp4', this); return false;">5.의외로 잘
+            터치하지 않는 성감대 - 발과 손</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/fullversion6(12).mp4', this); return false;">6.흥분에너지
+            자극 키스포인트!</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/fullversion7(13).mp4', this); return false;">7.여성의 애무
+            비기 - 음모(陰毛)</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/fullversion8(14).mp4', this); return false;">8.소음순과
+            음핵 오르가즘 비법!</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/fullversion9(15-1).mp4', this); return false;">9.질속
+            핫스팟들과 질스팟 깨우기(1)</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/fullversion10(15-2).mp4', this); return false;">10.질속
+            핫스팟들과 질스팟 깨우기(2)</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/fullversion11.mp4', this); return false;">11.질 깊은 곳
+            A스팟과 C스팟 공략법</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/fullversion12.mp4', this); return false;">12.신비의
+            자궁오르가즘 테크닉</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/fullversion13.mp4', this); return false;">13.자궁 감각
+            깨우는 삽입기법</li>
+
+<!--
+    </ol>
+
+    <ol id="videoList">
+-->
+        <li class="title_bold">기역도 명도훈련과 에너지오르가즘 단기특강</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/low version_kyd_short_1.mp4', this); return false;">
+            1.에너지오르가즘의 개념과 목표</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/low version_kyd_short_2.mp4', this); return false;">2.명도의
+            조건과 기역도의 원리</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/low version_kyd_short_3.mp4', this); return false;">
+            3.정력증진 섹서사이즈와 성에너지 마사지</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/low version_kyd_short_4.mp4', this); return false;">
+            4.성에너지 근육훈련</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/low version_kyd_short_5.mp4', this); return false;">5.성기
+            기역도와 정력증진 섹서사이즈</li>
+
+<!--
+    </ol>
+
+    <ol id="videoList">
+-->
+        <li class="title_bold">은방울 명기훈련과 에너지오르가즘 단기특강</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/low version_ubl_short_1.mp4', this); return false;">
+            1.에너지오르가즘의 개념과 목표</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/low version_ubl_short_2.mp4', this); return false;">2.명기의
+            조건</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/low version_ubl_short_3.mp4', this); return false;">
+            3.1,2단계:활력증진 섹서사이즈와 성에너지 마사지</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/low version_ubl_short_4.mp4', this); return false;">
+            4.3,4단계:성에너지근육 훈련과 은방울 명기훈련 이론</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/low version_ubl_short_5.mp4', this); return false;">
+            5.3,4단계:성에너지근육 훈련과 은방울 명기훈련 실습</li>
+        <li onclick="playVideo('https://video.taolove.kr/movies/EO/low version_ubl_short_6.mp4', this); return false;">
+            6.활력증진 섹서사이즈와 종합 수련</li>
+
+    </ol>
+
+
+    <script>
+        function playVideo(videoURL, listItem) {
+            var mainVideo = document.getElementById('mainVideo');
+            mainVideo.src = videoURL;
+            mainVideo.load();
+            mainVideo.play();
+
+            // Remove 'selected' class from all list items
+            var listItems = document.querySelectorAll('#videoList li');
+            listItems.forEach(function (item) {
+                item.classList.remove('selected');
+            });
+
+            // Add 'selected' class to the clicked list item
+            listItem.classList.add('selected');
+        }
+    </script>
+
+</body>
+
+</html>
