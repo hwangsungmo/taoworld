@@ -69,7 +69,27 @@
             margin-left: 0px;
         }
 
+        #mainVideo {
+            width: 320px;
+            height: 240px;
+        }
 
+        @media only screen and (min-width: 641px) {
+            /* For screens wider than 640px (PC) */
+            #videoList {
+                max-height: 390px;
+                width: 640px;
+            }
+
+            #mainVideo {
+                width: 640px;
+                height: 390px;
+            }
+
+            .title_bold1 {
+                width: 640px;
+            }
+        }
 
     </style>
 </head>
