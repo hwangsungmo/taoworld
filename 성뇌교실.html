@@ -8,8 +8,8 @@
     <style>
         #videoList {
             overflow-y: auto;
-            max-height: 390px;
-            width: 640px;
+            max-height: 240px;
+            width: 480px;
             /* Match the video width */
             list-style-type: none;
             padding: 0;
@@ -59,7 +59,7 @@
         .title_bold1 {
             font-weight: bold;
             text-align: center;
-            width: 640px;
+            width: 480px;
             background-color: black;
             color: white;
             font-size: 15px;
@@ -76,10 +76,9 @@
 
 <body>
 
-    <div class="title_bold1"> 성뇌교실 </div> 
+    <div class="title_bold1"> 성뇌교실 </div>
 
-    <video id="mainVideo" height: isMobile ? '240' : '390', width: isMobile ? '320' : '640', controls autoplay>
-
+    <video id="mainVideo" width="320" height="240" controls autoplay>
         <source src="https://video.taolove.kr/movies/diet/000.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -167,21 +166,6 @@
             // Add 'selected' class to the clicked list item
             listItem.classList.add('selected');
         }
-
-        // Additional code for mobile detection
-        function handleResize() {
-            var isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
-            player.setSize(isMobile ? '320' : '640', isMobile ? '240' : '390');
-        }
-
-        // Add an event listener for window resize
-        window.addEventListener('resize', handleResize);
-
-        // Adjust player dimensions based on device type
-        var isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
-
-
-
         
     </script>
 
